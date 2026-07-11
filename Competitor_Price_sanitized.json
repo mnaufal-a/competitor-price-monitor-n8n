@@ -1,0 +1,519 @@
+{
+  "name": "Competitor Price",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://gql.tokopedia.com/graphql/PDPMainInfo",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Windows\""
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Google Chrome\";v=\"149\", \"Chromium\";v=\"149\", \"Not)A;Brand\";v=\"24\""
+            },
+            {
+              "name": "x-price-center",
+              "value": "true"
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "bd-device-id",
+              "value": "7657852274576377364"
+            },
+            {
+              "name": "x-tkpd-akamai",
+              "value": "pdpMainInfo"
+            },
+            {
+              "name": "accept",
+              "value": "*/*"
+            },
+            {
+              "name": "x-date",
+              "value": "Thu, 02 Jul 2026 16:04:24 +0700"
+            },
+            {
+              "name": "x-tkpd-pdpb",
+              "value": "0"
+            },
+            {
+              "name": "x-version",
+              "value": "f2b5e35"
+            },
+            {
+              "name": "Referer",
+              "value": "https://www.tokopedia.com/"
+            },
+            {
+              "name": "x-source",
+              "value": "tokopedia-lite"
+            },
+            {
+              "name": "x-device",
+              "value": "desktop"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "x-tkpd-lite-service",
+              "value": "zeus"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n  {\n    \"operationName\": \"PDPMainInfo\",\n    \"variables\": {\n      \"productKey\": \"{{ $json.product_key }}\",\n      \"shopDomain\": \"{{ $json.shop_domain }}\",\n      \"layoutID\": \"\",\n      \"extraPayload\": \"\",\n      \"queryParam\": \"ivf=false&keyword=barber daily face wash&search_id=2026070208582800EC53C4682D36227RKV&src=search\",\n      \"source\": \"P1\",\n      \"userLocation\": {\n        \"addressID\": \"\",\n        \"districtID\": \"2274\",\n        \"postalCode\": \"\",\n        \"latlon\": \"\",\n        \"cityID\": \"176\"\n      }\n    },\n    \"query\": \"fragment ProductMedia on pdpDataProductMedia {\\n  media {\\n    type\\n    urlOriginal: URLOriginal\\n    urlThumbnail: URLThumbnail\\n    urlMaxRes: URLMaxRes\\n    videoUrl: videoURLAndroid\\n    prefix\\n    suffix\\n    description\\n    variantOptionID\\n    __typename\\n  }\\n  videos {\\n    source\\n    url\\n    __typename\\n  }\\n  __typename\\n}\\n\\nfragment ProductHighlight on pdpDataProductContent {\\n  name\\n  price {\\n    value\\n    currency\\n    priceFmt\\n    slashPriceFmt\\n    discPercentage\\n    __typename\\n  }\\n  campaign {\\n    campaignID\\n    campaignType\\n    campaignTypeName\\n    campaignIdentifier\\n    background\\n    percentageAmount\\n    originalPrice\\n    discountedPrice\\n    originalStock\\n    stock\\n    stockSoldPercentage\\n    threshold\\n    startDate\\n    endDate\\n    endDateUnix\\n    appLinks\\n    isAppsOnly\\n    isActive\\n    hideGimmick\\n    showStockBar\\n    __typename\\n  }\\n  thematicCampaign {\\n    additionalInfo\\n    background\\n    campaignName\\n    icon\\n    __typename\\n  }\\n  stock {\\n    useStock\\n    value\\n    stockWording\\n    __typename\\n  }\\n  variant {\\n    isVariant\\n    parentID\\n    __typename\\n  }\\n  wholesale {\\n    minQty\\n    price {\\n      value\\n      currency\\n      __typename\\n    }\\n    __typename\\n  }\\n  isCashback {\\n    percentage\\n    __typename\\n  }\\n  isTradeIn\\n  isOS\\n  isPowerMerchant\\n  isWishlist\\n  isCOD\\n  preorder {\\n    duration\\n    timeUnit\\n    isActive\\n    preorderInDays\\n    __typename\\n  }\\n  __typename\\n}\\n\\nfragment ProductInfo on pdpDataProductInfo {\\n  row\\n  content {\\n    title\\n    subtitle\\n    applink\\n    __typename\\n  }\\n  __typename\\n}\\n\\nfragment ProductDetail on pdpDataProductDetail {\\n  title\\n  productDetailDescription {\\n    title\\n    content\\n    __typename\\n  }\\n  content {\\n    title\\n    subtitle\\n    applink\\n    showAtFront\\n    isAnnotation\\n    __typename\\n  }\\n  __typename\\n}\\n\\nfragment ProductSocial on pdpDataSocialProof {\\n  row\\n  content {\\n    icon\\n    title\\n    subtitle\\n    applink\\n    type\\n    rating\\n    __typename\\n  }\\n  __typename\\n}\\n\\nfragment ProductDataInfo on pdpDataInfo {\\n  icon\\n  title\\n  isApplink\\n  applink\\n  content {\\n    icon\\n    text\\n    __typename\\n  }\\n  __typename\\n}\\n\\nfragment ProductCustomInfo on pdpDataCustomInfo {\\n  icon\\n  title\\n  isApplink\\n  applink\\n  separator\\n  description\\n  __typename\\n}\\n\\nfragment ProductVariant on pdpDataProductVariant {\\n  errorCode\\n  parentID\\n  defaultChild\\n  sizeChart\\n  totalStockFmt\\n  variants {\\n    productVariantID\\n    variantID\\n    name\\n    identifier\\n    option {\\n      picture {\\n        urlOriginal: url\\n        urlThumbnail: url100\\n        __typename\\n      }\\n      productVariantOptionID\\n      variantUnitValueID\\n      value\\n      hex\\n      stock\\n      __typename\\n    }\\n    __typename\\n  }\\n  children {\\n    productID\\n    price\\n    priceFmt\\n    slashPriceFmt\\n    discPercentage\\n    optionID\\n    optionName\\n    productName\\n    productURL\\n    picture {\\n      urlOriginal: url\\n      urlThumbnail: url100\\n      __typename\\n    }\\n    stock {\\n      stock\\n      isBuyable\\n      stockWordingHTML\\n      minimumOrder\\n      maximumOrder\\n      __typename\\n    }\\n    isCOD\\n    isWishlist\\n    campaignInfo {\\n      campaignID\\n      campaignType\\n      campaignTypeName\\n      campaignIdentifier\\n      background\\n      discountPercentage\\n      originalPrice\\n      discountPrice\\n      stock\\n      stockSoldPercentage\\n      startDate\\n      endDate\\n      endDateUnix\\n      appLinks\\n      isAppsOnly\\n      isActive\\n      hideGimmick\\n      isCheckImei\\n      minOrder\\n      showStockBar\\n      __typename\\n    }\\n    thematicCampaign {\\n      additionalInfo\\n      background\\n      campaignName\\n      icon\\n      __typename\\n    }\\n    ttsPID\\n    ttsSKUID\\n    __typename\\n  }\\n  __typename\\n}\\n\\nfragment ProductCategoryCarousel on pdpDataCategoryCarousel {\\n  linkText\\n  titleCarousel\\n  applink\\n  list {\\n    categoryID\\n    icon\\n    title\\n    isApplink\\n    applink\\n    __typename\\n  }\\n  __typename\\n}\\n\\nfragment ProductDetailMediaComponent on pdpDataProductDetailMediaComponent {\\n  title\\n  description\\n  contentMedia {\\n    url\\n    ratio\\n    type\\n    __typename\\n  }\\n  show\\n  ctaText\\n  __typename\\n}\\n\\nfragment PdpDataComponentShipmentV4 on pdpDataComponentShipmentV4 {\\n  data {\\n    productID\\n    warehouse_info {\\n      warehouse_id\\n      is_fulfillment\\n      district_id\\n      postal_code\\n      geolocation\\n      city_name\\n      ttsWarehouseID\\n      __typename\\n    }\\n    useBOVoucher\\n    isCOD\\n    metadata\\n    __typename\\n  }\\n  __typename\\n}\\n\\nquery PDPMainInfo($productKey: String, $shopDomain: String, $layoutID: String, $extraPayload: String, $queryParam: String, $source: String, $userLocation: pdpUserLocation) {\\n  pdpMainInfo(shopDomain: $shopDomain, productKey: $productKey, layoutID: $layoutID, extraPayload: $extraPayload, queryParam: $queryParam, source: $source, userLocation: $userLocation) {\\n    requestID\\n    extraPayload\\n    data {\\n      layoutName\\n      basicInfo {\\n        alias\\n        createdAt\\n        isQA\\n        id: productID\\n        shopID\\n        shopName\\n        minOrder\\n        maxOrder\\n        weight\\n        weightUnit\\n        condition\\n        status\\n        url\\n        needPrescription\\n        catalogID\\n        isLeasing\\n        isBlacklisted\\n        isTokoNow\\n        defaultMediaURL\\n        menu {\\n          id\\n          name\\n          url\\n          __typename\\n        }\\n        blacklistMessage {\\n          identifier\\n          imageURL\\n          title\\n          description\\n          button\\n          buttonArea\\n          buttonName\\n          url\\n          supportingImage {\\n            url\\n            width\\n            height\\n            __typename\\n          }\\n          __typename\\n        }\\n        category {\\n          id\\n          name\\n          title\\n          breadcrumbURL\\n          isAdult\\n          isKyc\\n          minAge\\n          detail {\\n            id\\n            name\\n            breadcrumbURL\\n            isAdult\\n            __typename\\n          }\\n          ttsID\\n          ttsDetail {\\n            id\\n            name\\n            breadcrumbURL\\n            isAdult\\n            __typename\\n          }\\n          __typename\\n        }\\n        txStats {\\n          transactionSuccess\\n          transactionReject\\n          countSold\\n          paymentVerified\\n          itemSoldFmt\\n          __typename\\n        }\\n        stats {\\n          countView\\n          countReview\\n          countTalk\\n          rating\\n          __typename\\n        }\\n        productID\\n        ttsPID\\n        ttsSKUID\\n        ttsShopID\\n        isAggregatedWithTTS\\n        __typename\\n      }\\n      __typename\\n    }\\n    components {\\n      name\\n      type\\n      kind\\n      position\\n      data {\\n        ...ProductMedia\\n        ...ProductHighlight\\n        ...ProductInfo\\n        ...ProductDetail\\n        ...ProductSocial\\n        ...ProductDataInfo\\n        ...ProductCustomInfo\\n        ...ProductVariant\\n        ...ProductCategoryCarousel\\n        ...ProductDetailMediaComponent\\n        ...PdpDataComponentShipmentV4\\n        __typename\\n      }\\n      __typename\\n    }\\n    __typename\\n  }\\n}\\n\"\n  }\n]",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1024,
+        -32
+      ],
+      "id": "5eeb0dde-6bb1-48d5-98be-eebe95e55a66",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "jsCode": "//Ambil data mentah dari HTTP Request node\nconst response = $input.first().json;\n\n//Masuk ke dalam struktur, sampai ke array components\nconst components = response.data.pdpMainInfo.components;\n\n//Cari kotak yang labelnya \"product_content\"\nconst productContentBox = components.find(item => item.name === \"product_content\");\n\n//Ambil isi kotak itu (data[0], karena isinya array 1 elemen)\nconst productData = productContentBox.data[0];\n\n\n\nreturn [\n  {\n    json: {\n      nama_produk: productData.name,\n      harga: productData.price.value,\n      harga_format: productData.price.priceFmt,\n      stok: productData.stock.value,\n      dicek_pada: new Date().toISOString()\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        -32
+      ],
+      "id": "0faf13b8-d8fe-471a-998f-e18ab387476b",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID/edit?usp=sharing",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        304,
+        -32
+      ],
+      "id": "f201dbcc-f14a-4113-a88b-01076bda6627",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "7wHxoOUJM6t5dics",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "//Ambil harga BARU dari hasil scraping (Code node paling awal)\nconst hargaBaru = $('Code in JavaScript').item.json.harga;\nconst namaProduk = $('Code in JavaScript').item.json.nama_produk;\nconst hargaBaruFormat = $(\"Code in JavaScript\").item.json.harga_format;\nconst stokBaru = $('Code in JavaScript').item.json.stok;\n\n//Ambil harga LAMA dari Google Sheets (input node ini sendiri)\nconst dataSheet = $(\"Loop Over Items\").item.json;\nconst hargaLama = dataSheet.harga_terakhir;\n\n\n// Cek dulu: kalau stok habis, data harga dari API tidak bisa dipercaya\nconst belumAdaHistori = !hargaLama;\nconst stokHabis = stokBaru === 0;\n\nlet hargaBaruFinal, hargaBaruFormatFinal, berubah, selisih, arah, hargaLamaFormat;\n\nif (belumAdaHistori) {\n  // Jangan timpa baseline, anggap tidak ada perubahan\n  hargaBaruFinal = hargaBaru;\n  hargaBaruFormatFinal = hargaBaruFormat;\n  hargaLamaFormat = \"0\";\n  berubah = false;\n  selisih = 0;\n  arah = \"baseline_baru\";\n} else if (stokHabis) {\n  // stok habis jgn timpa baseline\n  hargaBaruFinal = hargaLama;\n  hargaBaruFormatFinal = \"Rp\" + hargaLama.toLocaleString(\"id-ID\");\n  hargaLamaFormat = hargaBaruFormatFinal;\n  berubah = false;\n  selisih = 0;\n  arah = \"tetap\";\n} else {\n  hargaLamaFormat = \"Rp\" + hargaLama.toLocaleString(\"id-ID\");\n  hargaBaruFinal = hargaBaru;\n  hargaBaruFormatFinal = hargaBaruFormat;\n  berubah = hargaBaru !== hargaLama;\n  selisih = Math.abs(hargaBaru - hargaLama);\n  arah = (hargaBaru - hargaLama) > 0 ? \"naik\" : \"turun\";\n}\n\nreturn [\n  {\n    json: {\n      nama_produk: namaProduk,\n      harga_lama: hargaLama,\n      harga_baru: hargaBaruFinal,\n      harga_baru_format: hargaBaruFormatFinal,\n      berubah: berubah,\n      selisih: selisih,\n      arah: arah,\n      harga_lama_format: hargaLamaFormat,\n      row_number: dataSheet.row_number,\n      stokHabis: stokHabis,\n      belum_ada_histori: belumAdaHistori\n    }\n  }\n]"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1392,
+        -32
+      ],
+      "id": "957326ef-e78c-48c8-9c7c-11baea93d58b",
+      "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "8f6787a2-ec6f-4f96-8285-807548d2c165",
+              "leftValue": "={{ $json.berubah }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1600,
+        -32
+      ],
+      "id": "92649a52-508b-41ac-aa0d-c7557107025a",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.fonnte.com/send",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "YOUR_FONNTE_TOKEN_HERE"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "target",
+              "value": "YOUR_WHATSAPP_NUMBER"
+            },
+            {
+              "name": "message",
+              "value": "=🔔 *Perubahan Harga Terdeteksi!*\n\n📦 {{ $json.nama_produk }}\n\n{{ $json.arah === \"naik\" ? \"📈\" : \"📉\" }} Harga *{{ $json.arah.toUpperCase() }}*!\nSebelumnya: {{ $json.harga_lama_format }}\nSekarang: {{ $json.harga_baru_format }}\nSelisih: Rp{{ $json.selisih.toLocaleString('id-ID') }}\n\n_Hasil Pantau otomatis via n8n_automation_"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1840,
+        -144
+      ],
+      "id": "af9bed94-cecd-416b-af03-61e56aaa0115",
+      "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID/edit?usp=sharing",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "row_number": "={{ $('Code in JavaScript1').item.json.row_number }}",
+            "nama_produk": "={{ $('Code in JavaScript1').item.json.nama_produk }}",
+            "harga_terakhir": "={{ $('Code in JavaScript1').item.json.harga_baru }}",
+            "harga_format": "={{ $('Code in JavaScript1').item.json.harga_baru_format }}",
+            "terakhir_dicek": "={{ $now }}"
+          },
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "id": "nama_produk",
+              "displayName": "nama_produk",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "product_key",
+              "displayName": "product_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "shop_domain",
+              "displayName": "shop_domain",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "harga_terakhir",
+              "displayName": "harga_terakhir",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "harga_format",
+              "displayName": "harga_format",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "terakhir_dicek",
+              "displayName": "terakhir_dicek",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2112,
+        -16
+      ],
+      "id": "35110bab-edc3-4b47-bb9e-71a14980cf74",
+      "name": "Update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "7wHxoOUJM6t5dics",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        544,
+        -96
+      ],
+      "id": "7495caee-10a4-40f1-b07b-3219b99599d3",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $input.first().json;\nconst url = item.url_produk;\n\nconst afterDomain = url.split('tokopedia.com/')[1];\nconst pathOnly = afterDomain.split('?')[0]; \nconst pathParts = pathOnly.split('/').filter(part => part !== '');\n\nconst shopDomain = pathParts[0];\nconst productKey = pathParts[1];\n\nreturn [\n  {\n    json: {\n      ...item,\n      product_key: productKey,\n      shop_domain:  shopDomain,\n    }\n  }\n]"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        752,
+        0
+      ],
+      "id": "bbfef4f1-cbe9-427f-a214-3f14af1ffb4f",
+      "name": "Parse URL"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 7
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        96,
+        -32
+      ],
+      "id": "3fd3ff9b-1d7e-473c-98ad-9e592abce4c0",
+      "name": "Schedule Trigger"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Parse URL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse URL": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "timeSavedMode": "fixed",
+    "timezone": "Asia/Jakarta",
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionTimeout": -1,
+    "availableInMCP": false
+  },
+  "versionId": "10ea2da2-58e4-4d76-9b56-1fa9d00d1b15",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "df3739d2129dfd9bde2166d3e546bd58774ca443a10bcda350a14749f0da3fbe"
+  },
+  "id": "OthNn3XVN8wVic6y",
+  "tags": []
+}
